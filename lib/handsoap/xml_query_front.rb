@@ -58,7 +58,7 @@ module Handsoap
         XmlQueryFront::REXMLDriver.new(doc)
       elsif driver == :nokogiri
         doc = Nokogiri::XML(xml_string)
-        raise ParseError.new unless (doc && doc.root && doc.errors.empty?)
+        raise ParseError.new unless (doc && doc.root)
         XmlQueryFront::NokogiriDriver.new(doc)
       elsif driver == :libxml
         begin
